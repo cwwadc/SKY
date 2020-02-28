@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="mockBean" class="com.sky.base.context.spring.MockBean">
+		<property name="name" value="test" />
+	</bean>
+
+	<bean id="mockBean2" class="com.sky.base.context.spring.MockBean2">
+		<property name="name" value="test2" />
+		<property name="age" value="12" />
+	</bean>
+
+	<bean id="mockBeanOfConstruct" class="com.sky.base.context.spring.MockBeanOfConstruct" scope="prototype">
+		<constructor-arg index="0" value="testC" />
+		<constructor-arg index="1" value="10" />
+	</bean>
+
+	<bean id="mockBean33" class="com.sky.base.context.spring.MockBean3">
+		<property name="name" value="test33" />
+	</bean>
+
+	<bean id="mockBean333" class="com.sky.base.context.spring.MockBean3">
+		<property name="name" value="test333" />
+	</bean>
+
+	<bean class="com.sky.base.context.spring.SpringContext"></bean>
+
+</beans>

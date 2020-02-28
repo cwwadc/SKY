@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings
+    xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0                         http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository>D:/Maven-Respositories/respository_10.47.0.170</localRepository>
+    <interactiveMode/>
+    <usePluginRegistry/>
+    <offline/>
+    <pluginGroups/>
+    <servers>
+    		<server>
+    				<id>allinpaygd_repository</id>  
+      			<username>deployment</username>  
+      			<password>nexus@allinpay.com</password> 
+    		</server>
+    		<server>
+    				<id>allinpaygd_snapshot_repository</id>  
+      			<username>deployment</username>  
+      			<password>nexus@allinpay.com</password> 
+    		</server>
+    </servers>
+    <mirrors>
+        <mirror>
+            <id>nexus</id>
+            <mirrorOf>central</mirrorOf>
+            <url>http://mvnrepository.allinpaygd.com/nexus/content/groups/public</url>
+        </mirror>
+		<mirror>
+			<id>nexus-snapshots</id>
+			<mirrorOf>central-snapshots</mirrorOf>  
+			<url>http://mvnrepository.allinpaygd.com/nexus/content/groups/public-snapshots</url>
+		</mirror> 
+    </mirrors>
+    <proxies/>
+    <profiles>
+        <profile>
+            <id>nexus</id>
+            <repositories>
+                <repository>
+                    <id>nexus</id>
+                    <name>local private nexus</name>
+                    <url>http://mvnrepository.allinpaygd.com/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>nexus-snapshots</id>
+                    <name>local private nexus</name>
+                    <url>http://mvnrepository.allinpaygd.com/nexus/content/groups/public-snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus</id>
+                    <name>local private nexus</name>
+                    <url>http://mvnrepository.allinpaygd.com/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>nexus-snapshots</id>
+                    <name>local private nexus</name>
+                    <url>http://mvnrepository.allinpaygd.com/nexus/content/groups/public-snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>nexus</activeProfile>
+    </activeProfiles>
+</settings>

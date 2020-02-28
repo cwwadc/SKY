@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.core.dao.TransactionOnlineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.sky.core.bean.TransactionOnline">
+        <id column="ID" property="id"/>
+        <result column="MSG_TYPE" property="msgType"/>
+        <result column="MSG_ID" property="msgId"/>
+        <result column="REF_MSG_ID" property="refMsgId"/>
+        <result column="MSG_METADATA" property="msgMetadata"/>
+        <result column="RELAY_ERROR" property="relayError"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="RESERVED" property="reserved"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID AS id, MSG_TYPE AS msgType, MSG_ID AS msgId, REF_MSG_ID AS refMsgId, MSG_METADATA AS msgMetadata, RELAY_ERROR AS relayError, CREATE_TIME AS createTime, RESERVED AS reserved
+    </sql>
+
+</mapper>

@@ -1,0 +1,10 @@
+sky-packager ：sky基础构件聚合模块
+
+#更新所有子模块的parent为当前最新版本, -DallowSnapshots=true表示支持快照版本, 去掉改属性或改为false表示只支持发布版本
+mvn versions:update-parent -DallowSnapshots=true
+
+#更新所有子模块的parent为指定版本, -DallowSnapshots=true表示支持快照版本, 去掉改属性或改为false表示只支持发布版本
+mvn versions:update-parent -DparentVersion=[1.1.0-SNAPSHOT] -DallowSnapshots=true
+
+#更新所有子模块的parent为指定版本区间内最新版本, -DallowSnapshots=true表示支持快照版本, 去掉改属性或改为false表示只支持发布版本
+mvn versions:update-parent -DparentVersion=[1.0.0-SNAPSHOT,1.1.0-SNAPSHOT) -DallowSnapshots=true

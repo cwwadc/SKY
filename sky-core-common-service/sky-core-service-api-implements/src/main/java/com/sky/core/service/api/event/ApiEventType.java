@@ -1,0 +1,15 @@
+package com.sky.core.service.api.event;
+
+/**
+  * 接口事件类型枚举
+ *
+ */
+public enum ApiEventType{
+	CALLBACK_EVENT,  
+	CALLBACK_WAIT_TIMEOUT_EVENT, 
+	HTTP_RELAY_ERROR_EVENT, 
+	HTTP_RESPONSE_WRITE_FAIL_EVENT, 
+	ASYNC_TIMEOUT_REPLAY_EVENT,
+	CALLBACK_INVOKE_FAIL_EVENT,
+	MQ_RELAY_ERROR_EVENT
+}

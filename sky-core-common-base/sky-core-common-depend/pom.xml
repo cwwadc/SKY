@@ -1,0 +1,692 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>sky-core</groupId>
+	<artifactId>sky-core-common-depend</artifactId>
+	<version>1.0.0-RELEASE</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<compiler.source>1.8</compiler.source>
+		<compiler.target>1.8</compiler.target>
+		<!-- Dependency versions -->
+		<sky.core.common.version>1.0.0-RELEASE</sky.core.common.version>
+		<spring-boot.version>1.5.21.RELEASE</spring-boot.version>
+		<druid.version>1.1.12</druid.version>
+		<shiro.version>1.4.0</shiro.version>
+		<log4j2.version>2.11.1</log4j2.version>
+		<netty.version>4.1.32.Final</netty.version>
+		<poi.version>4.0.1</poi.version>
+		<zookeeper.version>3.4.13</zookeeper.version>
+		<zkclient.version>0.2</zkclient.version>
+		<curator.version>4.0.1</curator.version>
+		<curator.test.version>2.12.0</curator.test.version>
+		<embedded.redis.version>0.6</embedded.redis.version>
+		<zuul.version>1.3.1</zuul.version>
+		<elastic.job.lite.version>2.1.5</elastic.job.lite.version>
+		<dubbo.version>2.7.0</dubbo.version>
+		<kettle.version>8.2.0.0-342</kettle.version>
+		<vertx.version>3.7.1</vertx.version>
+		<ibmmq.version>9.0.5.0</ibmmq.version>
+		<cxf.version>3.2.7</cxf.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- Third Party -->
+			<!-- alibaba druid begin -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<!-- alibaba druid end -->
+
+			<!-- mybatis begin -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.4.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>1.3.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis.caches</groupId>
+				<artifactId>mybatis-ehcache</artifactId>
+				<version>1.1.0</version>
+			</dependency>
+			<!-- mybatis end -->
+
+			<!-- quartz begin -->
+			<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+				<artifactId>quartz</artifactId>
+				<version>2.2.3</version>
+			</dependency>
+			<!-- quartz end -->
+
+			<!-- alibaba fastjson begin -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>1.2.54</version>
+			</dependency>
+			<!-- alibaba fastjson end -->
+
+			<!-- poi begin -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml-schemas</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+			<!-- poi end -->
+
+			<!-- cxf begin -->
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-transports-http</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-frontend-jaxws</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-transports-http-jetty</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<!-- cxf end -->
+
+			<!-- shiro begin -->
+			<dependency>
+				<groupId>org.crazycake</groupId>
+				<artifactId>shiro-redis</artifactId>
+				<version>3.2.3</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.puppycrawl.tools</groupId>
+						<artifactId>checkstyle</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-ehcache</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-core</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-web</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-quartz</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<!-- shiro end -->
+
+			<!-- embedded-redis begin -->
+			<dependency>
+				<groupId>com.github.kstyrc</groupId>
+				<artifactId>embedded-redis</artifactId>
+				<version>${embedded.redis.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- embedded-redis end -->
+
+			<!-- ftp begin -->
+			<dependency>
+				<groupId>sauronsoftware.ftp4j</groupId>
+				<artifactId>ftp4j</artifactId>
+				<version>1.7.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jcraft</groupId>
+				<artifactId>jsch</artifactId>
+				<version>0.1.55</version>
+			</dependency>
+			<!-- ftp end -->
+
+			<!-- mockito begin -->
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>1.9.5</version>
+			</dependency>
+			<!-- mockito end -->
+
+			<!-- easymock begin -->
+			<dependency>
+				<groupId>org.easymock</groupId>
+				<artifactId>easymock</artifactId>
+				<version>4.0.2</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- easymock end -->
+
+			<!-- netty begin -->
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>${netty.version}</version>
+			</dependency>
+			<!-- netty end -->
+
+			<!-- apache commons begin -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.8.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>4.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-compress</artifactId>
+				<version>1.18</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-math3</artifactId>
+				<version>3.6.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
+				<version>2.6.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-text</artifactId>
+				<version>1.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-configuration2</artifactId>
+				<version>2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-exec</artifactId>
+				<version>1.3</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-csv</artifactId>
+				<version>1.6</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.11</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.6</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>1.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-vfs2</artifactId>
+				<version>2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>2.6</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.4</version>
+			</dependency>
+			<!-- apache commons end -->
+
+			<!-- xstream begin -->
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>1.4.10</version>
+			</dependency>
+			<!-- xstream end -->
+
+			<!-- google begin -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>27.0.1-jre</version>
+			</dependency>
+			<!-- google end -->
+
+			<!-- javacsv begin -->
+			<dependency>
+				<groupId>net.sourceforge.javacsv</groupId>
+				<artifactId>javacsv</artifactId>
+				<version>2.0</version>
+			</dependency>
+			<!-- javacsv end -->
+
+			<!-- zookeeper begin -->
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${zookeeper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.101tec</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${zkclient.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-framework</artifactId>
+				<version>${curator.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.zookeeper</groupId>
+						<artifactId>zookeeper</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-recipes</artifactId>
+				<version>${curator.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.zookeeper</groupId>
+						<artifactId>zookeeper</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-test</artifactId>
+				<version>${curator.test.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.zookeeper</groupId>
+						<artifactId>zookeeper</artifactId>
+					</exclusion>
+				</exclusions>
+				<scope>test</scope>
+			</dependency>
+			<!-- zookeeper end -->
+
+			<!-- netflix begin -->
+			<dependency>
+				<groupId>com.netflix.zuul</groupId>
+				<artifactId>zuul-core</artifactId>
+				<version>${zuul.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.netflix.archaius</groupId>
+				<artifactId>archaius-core</artifactId>
+				<version>0.6.0</version>
+			</dependency>
+			<!-- netflix end -->
+
+			<!-- page begin -->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>5.1.8</version>
+			</dependency>
+			<!-- page end -->
+
+			<!-- oracle begin -->
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc6</artifactId>
+				<version>11.2.0.4</version>
+			</dependency>
+			<!-- oracle end -->
+
+			<!-- elastic job lite begin -->
+			<dependency>
+				<groupId>com.dangdang</groupId>
+				<artifactId>elastic-job-lite-core</artifactId>
+				<version>${elastic.job.lite.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.dangdang</groupId>
+				<artifactId>elastic-job-lite-spring</artifactId>
+				<version>${elastic.job.lite.version}</version>
+			</dependency>
+			<!-- elastic job lite end -->
+
+			<!-- dubbo begin -->
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-dependencies-zookeeper</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<!-- dubbo end -->
+
+			<!-- validator begin -->
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>2.0.1.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.bval</groupId>
+				<artifactId>bval-jsr</artifactId>
+				<version>2.0.0</version>
+			</dependency>
+			<!-- validator end -->
+			
+			<dependency>
+				<groupId>javax.enterprise.concurrent</groupId>
+				<artifactId>javax.enterprise.concurrent-api</artifactId>
+				<version>1.0</version>
+			</dependency>
+
+			<!-- netty begin -->
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-transport-native-epoll</artifactId>
+				<version>4.1.34.Final-redhat-00001</version>
+			</dependency>
+			<!-- netty end -->
+
+			<dependency>
+				<groupId>com.fasterxml.uuid</groupId>
+				<artifactId>java-uuid-generator</artifactId>
+				<version>3.1.4</version>
+			</dependency>
+
+			<!-- kettle begin -->
+			<dependency>
+				<groupId>pentaho-kettle</groupId>
+				<artifactId>kettle-core</artifactId>
+				<version>${kettle.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>pentaho-kettle</groupId>
+				<artifactId>kettle-dbdialog</artifactId>
+				<version>${kettle.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>pentaho-kettle</groupId>
+				<artifactId>kettle-engine</artifactId>
+				<version>${kettle.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>pentaho</groupId>
+				<artifactId>metastore</artifactId>
+				<version>${kettle.version}</version>
+			</dependency>
+			<!-- kettle end -->
+
+
+			<!-- shardbatis begin -->
+			<dependency>
+				<groupId>org.shardbatis</groupId>
+				<artifactId>shardbatis</artifactId>
+				<version>2.1.0</version>
+			</dependency>
+			<!-- shardbatis end -->
+
+			<!-- shardingsphere begin -->
+			<dependency>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>sharding-jdbc-core</artifactId>
+				<version>4.0.0-RC1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>sharding-jdbc-spring-namespace</artifactId>
+				<version>4.0.0-RC1</version>
+			</dependency>
+			<!-- shardingsphere end -->
+
+			<!-- thumbnailator begin -->
+			<dependency>
+				<groupId>net.coobird</groupId>
+				<artifactId>thumbnailator</artifactId>
+				<version>0.4.8</version>
+			</dependency>
+			<!-- thumbnailator end -->
+
+			<!-- ibm begin -->
+			<dependency>
+				<groupId>com.ibm.mq</groupId>
+				<artifactId>com.ibm.mq.allclient</artifactId>
+				<version>${ibmmq.version}</version>
+			</dependency>
+			<!-- ibm end -->
+
+			<!-- microsoft begin -->
+			<dependency>
+				<groupId>com.microsoft.sqlserver</groupId>
+				<artifactId>sqljdbc4</artifactId>
+				<version>4.0</version>
+			</dependency>
+			<!-- microsoft end -->
+
+			<!-- vertx begin -->
+			<dependency>
+				<groupId>io.vertx</groupId>
+				<artifactId>vertx-web</artifactId>
+				<version>3.7.1</version>
+			</dependency>
+			<dependency>
+				<groupId>io.vertx</groupId>
+				<artifactId>vertx-core</artifactId>
+				<version>3.7.1</version>
+			</dependency>
+			<!-- vertx end -->
+			
+			<dependency>
+				<groupId>xerces</groupId>
+				<artifactId>xercesImpl</artifactId>
+				<version>2.12.0</version>
+			</dependency>
+
+			<!-- sky begin -->
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-lang</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-context</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-cache-api</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-cache-redis</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-cache-ehcache</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-serialize</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-jms</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-transport</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-lock-api</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-test</artifactId>
+				<version>${sky.core.common.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-validation</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-jdbc</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-common-security</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-service-api-support</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-service-api-struct</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-service-api-implements</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>sky-core</groupId>
+				<artifactId>sky-core-standalone-container</artifactId>
+				<version>${sky.core.common.version}</version>
+			</dependency>
+			<!-- sky end -->
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<!-- 源代码使用的开发版本 -->
+					<source>${compiler.source}</source>
+					<!-- 需要生成的目标class文件的编译版本 -->
+					<target>${compiler.target}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.7.2</version>
+				<configuration>
+					<argLine>-Dfile.encoding=UTF-8 ${argLine}</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<generateBackupPoms>false</generateBackupPoms>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

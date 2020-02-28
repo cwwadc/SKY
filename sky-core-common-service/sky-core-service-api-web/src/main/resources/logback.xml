@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%-34thread] %logger{36} - %msg %file:%L%n</pattern>
+            <charset>GBK</charset>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${web.log.dir}/web-connector.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${web.log.dir}/web-connector%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%-34thread] %logger{36} - %msg %file:%L%n</pattern>
+            <charset>GBK</charset>
+        </encoder>
+    </appender>
+
+    <appender name="async-file" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE" />
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <appender name="async-console" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="STDOUT" />
+        <includeCallerData>true</includeCallerData>
+    </appender>
+
+    <logger name="com" level="INFO" />
+    <logger name="org" level="INFO" />
+    <!-- <logger name="io" level="DEBUG" /> -->
+
+    <!-- Strictly speaking, the level attribute is not necessary since -->
+    <!-- the level of the root level is set to DEBUG by default.       -->
+    <root level="INFO">
+        <appender-ref ref="async-console" />
+        <appender-ref ref="async-file" />
+    </root>
+
+</configuration>

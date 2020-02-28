@@ -1,0 +1,16 @@
+package com.sky.core.service.api.serialize;
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+public class GZipBasedApiCompressFactoryTest {
+	
+	@Test
+	public void compressTest() {
+		String str = "<?xml version=\"1.0\" encoding=\"GBK\"?><Message><Head><Src>299999999</Src><Dest>0000</Dest><OrigSrc></OrigSrc><MsgType>A10101</MsgType><WorkDate>20190730</WorkDate><MsgId>3201907449906814</MsgId><RefMsgType></RefMsgType><RefMsgId></RefMsgId><SendDateTime>20190730154600</SendDateTime><MacFlag>0</MacFlag><RetCode></RetCode><RetMsg></RetMsg></Head><Body><TxnPayInfo><OrgId>24402230000</OrgId><OrgDate>20190730</OrgDate><OrgMid>3201907449906814</OrgMid><BankId>105582000212</BankId><FiscId>1908000000</FiscId><TxnType>1</TxnType><GetAccNo>641857761110</GetAccNo><PayAccNo>44001561604053001228</PayAccNo><Amount>437.6</Amount><PayType>1</PayType><TaxInfo><PrintFlag>2</PrintFlag><PayerName>公司零八</PayerName><PayerCode>4402829018835</PayerCode><CorpRegCode>120</CorpRegCode><DocumentNo></DocumentNo><VisaCheck>07e702e4bb4646be1ec19d5b5b5a2505254</VisaCheck><Commentary></Commentary><ExtOrgId>440282</ExtOrgId><ExtPayerCode>200119078</ExtPayerCode><TxnTypeCnt>4</TxnTypeCnt><TaxType><SeqNo>1</SeqNo><TaxCode>66</TaxCode><TaxName>社会保险基金收入</TaxName><Item>10204</Item><TaxTypeAmt>437.6</TaxTypeAmt><TaxStartDate>20190101</TaxStartDate><TaxEndDate>20190131</TaxEndDate><DetailCnt>4</DetailCnt><TaxSubject><SeqNo>1</SeqNo><TaxSubjectCode>0201</TaxSubjectCode><TaxSubjectName>工伤保险</TaxSubjectName><BudgetType>1</BudgetType><AdjustFlag></AdjustFlag><TaxType></TaxType><DescFisc></DescFisc><OrgVicesign>4081</OrgVicesign><TaxPropCode>10</TaxPropCode><ExtPropCode>10</ExtPropCode><Blevel>4</Blevel><Vicesign>00000000000000000000010000000000000</Vicesign><TaxSubjectAmt>36.22</TaxSubjectAmt></TaxSubject><TaxSubject><SeqNo>2</SeqNo><TaxSubjectCode>0201</TaxSubjectCode><TaxSubjectName>工伤保险</TaxSubjectName><BudgetType>1</BudgetType><AdjustFlag></AdjustFlag><TaxType></TaxType><DescFisc></DescFisc><OrgVicesign>4081</OrgVicesign><TaxPropCode>20</TaxPropCode><ExtPropCode>10</ExtPropCode><Blevel>4</Blevel><Vicesign>00000000000000000000010000000000000</Vicesign><TaxSubjectAmt>0.27</TaxSubjectAmt></TaxSubject><TaxSubject><SeqNo>3</SeqNo><TaxSubjectCode>0201</TaxSubjectCode><TaxSubjectName>工伤保险</TaxSubjectName><BudgetType>1</BudgetType><AdjustFlag></AdjustFlag><TaxType></TaxType><DescFisc></DescFisc><OrgVicesign>4081</OrgVicesign><TaxPropCode>10</TaxPropCode><ExtPropCode>10</ExtPropCode><Blevel>4</Blevel><Vicesign>00000000000000000000010000000000000</Vicesign><TaxSubjectAmt>398.12</TaxSubjectAmt></TaxSubject><TaxSubject><SeqNo>4</SeqNo><TaxSubjectCode>0201</TaxSubjectCode><TaxSubjectName>工伤保险</TaxSubjectName><BudgetType>1</BudgetType><AdjustFlag></AdjustFlag><TaxType></TaxType><DescFisc></DescFisc><OrgVicesign>4081</OrgVicesign><TaxPropCode>20</TaxPropCode><ExtPropCode>10</ExtPropCode><Blevel>4</Blevel><Vicesign>00000000000000000000010000000000000</Vicesign><TaxSubjectAmt>2.99</TaxSubjectAmt></TaxSubject></TaxType></TaxInfo></TxnPayInfo></Body></Message>";
+        byte[] compress = GZipBasedApiCompressFactory.instance().compress(str);
+        String string = GZipBasedApiCompressFactory.instance().uncompress(compress);
+        assertTrue(str.contentEquals(string));
+	}
+}

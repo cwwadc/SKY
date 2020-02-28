@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>sky-core</groupId>
+		<artifactId>sky-core-common-depend</artifactId>
+		<version>1.0.0-RELEASE</version>
+	</parent>
+	<artifactId>sky-core-common-packager</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>../sky-core-common-depend</module>
+		<module>../sky-core-common-lang</module>
+		<module>../sky-core-common-test</module>
+		<module>../sky-core-common-serialize</module>
+		<module>../sky-core-common-context</module>
+		<module>../sky-core-common-cache/sky-core-common-cache-api</module>
+		<module>../sky-core-common-cache/sky-core-common-cache-redis</module>
+		<module>../sky-core-common-cache/sky-core-common-cache-ehcache</module>
+		<module>../sky-core-common-lock/sky-core-common-lock-api</module>
+		<module>../sky-core-common-lock/sky-core-common-lock-zookeeper</module>
+		<module>../sky-core-common-transport</module>
+		<module>../sky-core-common-security</module>
+		<module>../sky-core-common-validation</module>
+		<module>../sky-core-common-jdbc</module>
+		<module>../../sky-core-common-service/sky-core-service-api-struct</module>
+		<module>../../sky-core-common-service/sky-core-service-api-support</module>
+		<module>../../sky-core-common-service/sky-core-service-api-implements</module>
+		<module>../../sky-core-common-service/sky-core-standalone-container</module>
+		<module>../../sky-core-common-service/sky-core-standalone-http-connector</module>
+		<module>../../sky-core-common-service/sky-core-standalone-jms-connector</module>
+	</modules>
+
+</project>
