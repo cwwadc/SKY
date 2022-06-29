@@ -18,7 +18,7 @@
 		<shiro.version>1.4.0</shiro.version>
 		<log4j2.version>2.11.1</log4j2.version>
 		<netty.version>4.1.32.Final</netty.version>
-		<poi.version>4.0.1</poi.version>
+		<poi.version>4.1.1</poi.version>
 		<zookeeper.version>3.4.13</zookeeper.version>
 		<zkclient.version>0.2</zkclient.version>
 		<curator.version>4.0.1</curator.version>
