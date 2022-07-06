@@ -15,7 +15,7 @@
 		<sky.core.common.version>1.0.0-RELEASE</sky.core.common.version>
 		<spring-boot.version>1.5.21.RELEASE</spring-boot.version>
 		<druid.version>1.1.12</druid.version>
-		<shiro.version>1.4.0</shiro.version>
+		<shiro.version>1.9.1</shiro.version>
 		<log4j2.version>2.11.1</log4j2.version>
 		<netty.version>4.1.32.Final</netty.version>
 		<poi.version>4.0.1</poi.version>
